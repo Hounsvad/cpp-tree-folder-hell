@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
         nodes_for_next_level.push_back(current_node.left);
         nodes_for_next_level.push_back(current_node.right);
     }
-    
+    create_folder(root, ".");
 
     return 0;
 }
@@ -49,9 +49,9 @@ void create_folder(node* _node, std::string _path) {
     std::string command = "mkdir " + path;
     system(command.c_str());
     if (_node->left != nullptr) {
-        create_folder(_node->left, path + "/");
+        create_folder(_node->left, path);
     }
     if (_node->right != nullptr) {
-        create_folder(_node->right, path + "/");
+        create_folder(_node->right, path);
     }
 }
